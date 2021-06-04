@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sections 23 and 24 are also using this Section22Mavenjava project -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>qaclickacademy</groupId>
+  <artifactId>Section22Mavenjava</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Section22Mavenjava</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://maven.apache.org</url>
+  
+  <!-- Surefire plugin is imported which will help to execute all your Tests(in TCs(here, 3 Classes)) in Maven Project -->
+  <profiles>
+  
+  <profile>       <!-- Use these when you have 2 different testng.xml files to run whichever you want (here, testng.xml for smoke testing and testng2.xml for regression testing).. if you have only single testng.xml file in your Maven project then you start from <build> tag directly-->
+  <id>Regression</id> 
+     <build>                               
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M5</version>
+           <configuration>       <!-- Removing everything from this tag to </configuration> will execute all the 6 TCs from 3 Classes -->
+          <suiteXmlFiles>
+            <suiteXmlFile>testng2.xml</suiteXmlFile>    <!-- Project level execution using testng.xml file (here, 4 TCs will be executed from testng.xml) -->   <!-- Maven will only execute testng.xml file now (to execute all 3 Classes in test folder (Test folder level execution (6 TCs from 3 Classes)), remove everything from <configuration> to </configuration> -->
+          </suiteXmlFiles>
+        </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  </profile>
+ 
+  <profile>
+  <id>Smoke</id>
+     <build>                               
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M5</version>
+           <configuration>       <!-- Removing everything from this tag to </configuration will execute all the 6 TCs from 3 Classes -->
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>    <!-- Project level execution using testng.xml file (here, 4 TCs will be executed from testng.xml) -->   <!-- Maven will only execute testng.xml file now (to execute all 3 Classes in test folder (Test folder level execution (6 TCs from 3 Classes)), remove everything from <configuration> to </configuration> -->
+          </suiteXmlFiles>
+        </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  </profile>
+ 
+  </profiles>
+
+  <dependencies>
+  <!-- Selenium Jars are automatically imported -->
+   <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>3.141.59</version>
+   </dependency>
+   
+    <!-- REST Assured Jars are automatically imported -->
+   <dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>4.4.0</version>
+    <scope>test</scope>
+   </dependency>
+   
+    <!-- Appium Jars are automatically imported -->
+   <dependency>
+    <groupId>io.appium</groupId>
+    <artifactId>java-client</artifactId>
+    <version>7.5.1</version>
+   </dependency>
+   
+    <!-- TestNG Jars are automatically imported -->
+   <dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>6.14.3</version>
+    <scope>test</scope>
+   </dependency>
+    
+  </dependencies>
+  
+</project>

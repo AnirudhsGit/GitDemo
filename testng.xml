@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!-- Smoke Testing Purpose (2/3 TCs) -->
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="qaclickacademy.Section22Mavenjava.RESTAPITest"/>
+      <class name="qaclickacademy.Section22Mavenjava.SeleniumTest"/>
+      <!-- AppiumTest is removed (<class name="qaclickacademy.Section22Mavenjava.AppiumTest"/>) so that to check if maven is really using testng.xml or directly executing 3 Classes-->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
