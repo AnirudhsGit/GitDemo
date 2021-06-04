@@ -8,6 +8,8 @@ public class SeleniumTest {
 	public void BrowserAutomation() {
 		
 		System.out.println("BrowserAutomation");
+		System.out.println("UIAutomation");    ////changes in GitStuff after pulling modified GitDemo code from Github
+	
 	}
 	
 	@Test
