@@ -17,5 +17,11 @@ public class SeleniumTest {
 		
 		System.out.println("ElementsUI");
 	}
+	
+	@Test
+	public void DropdownUI() {
+		
+		System.out.println("DropdownUI");
+	}
 
 }
