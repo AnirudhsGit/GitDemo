@@ -23,5 +23,11 @@ public class SeleniumTest {
 		
 		System.out.println("DropdownUI");
 	}
+	
+	@Test
+	public void ImageUI() {
+		
+		System.out.println("ImageUI");
+	}
 
 }
